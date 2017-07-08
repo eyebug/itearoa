@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ $title or 'Laravel' }}</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -28,7 +28,7 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
+                    <a class="navbar-brand" href="{{ route('postList') }}">
                         {{ config('app.name', 'Laravel') }}
                     </a>
                 </div>
@@ -70,8 +70,9 @@
                 </div>
             </div>
         </nav>
-
-        @yield('content')
+        <div style="width: 80%; margin: auto;">
+            @yield('content')
+        </div>
     </div>
 
     <!-- Scripts -->
