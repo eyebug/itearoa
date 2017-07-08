@@ -54,6 +54,15 @@ return [
             'engine' => null,
         ],
 
+        'mongodb' => [        //MongoDB
+            'driver'   => 'mongodb',
+            'host'     => env('MONGODB_HOST', '127.0.0.1'),
+            'port'     => env('MONGODB_PORT', 27017),
+            'database' => env('MONGODB_DATABASE', 'forge'),
+            'username' => env('MONGODB_USERNAME', 'forge'),
+            'password' => env('MONGODB_PASSWORD', ''),
+        ],
+
         'pgsql' => [
             'driver' => 'pgsql',
             'host' => env('DB_HOST', '127.0.0.1'),
