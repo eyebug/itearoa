@@ -17,12 +17,11 @@
 
     @if(count($post['tags']))
     <span>Tags: </span>
-    @foreach($post['tags'] as $tag)
-    <a href="{{ route('getPostListWithTag', $tag) }}">
-        <button class="btn btn-primary">{{ $tag }}</button>
-    </a>
-    @endforeach
     @endif
+    @foreach($post['tags'] as $tag)
+    <a href="{{ route('getPostListWithTag', $tag) }}"><button class="btn btn-primary">{{ $tag }}</button></a>
+    @endforeach
+
 
     @if(count($post['tags']))
     <hr>
