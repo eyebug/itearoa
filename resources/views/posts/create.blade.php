@@ -25,6 +25,11 @@
     </div>
 
     <div class="form-group">
+        {!!Form::label('tag', 'Tags:')!!}
+        {!!Form::text('tags', null, ['class' => 'form-control', 'placeholder' => 'Tags with comma separator'])!!}
+    </div>
+
+    <div class="form-group">
         {!!Form::submit('Submit', null, ['class' => 'form-control btn btn-primary'])!!}
     </div>
 

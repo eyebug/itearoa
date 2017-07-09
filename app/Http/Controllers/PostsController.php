@@ -16,6 +16,8 @@ class PostsController extends Controller
      */
     private $_collection;
 
+    const TAG_SEPARATOR = ',';
+
     public function __construct()
     {
         $this->_collection = Mongodb::connectionMongodb("posts");
@@ -26,15 +28,20 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($tag = null)
     {
-        $posts = $this->_collection->orderBy('created_at', 'desc')->get(array('title', 'created_at'))->all();
+        $tag = trim($tag);
+        $query = $this->_collection->orderBy('created_at', 'desc');
+        if (!empty($tag)) {
+            $query->where('tags', 'all', array($tag));
+        }
+        $posts = $query->get(array('title', 'created_at'))->all();
         foreach ($posts as &$post) {
             $post['created_at'] = (new Carbon($post['created_at']['date'], $post['created_at']['timezone']))
                 ->setTimezone(config('app.timezone'))->toDateTimeString();
         }
         $isAdmin = Auth::check() && Auth::user()->name == 'admin';
-        return view('posts.list', compact('posts', 'isAdmin'));
+        return view('posts.list', compact('posts', 'isAdmin', 'tag'));
     }
 
     /**
@@ -59,14 +66,20 @@ class PostsController extends Controller
         $this->validate($request, [
             'title' => 'bail|required|max:255',
             'body' => 'required',
+            'tags' => 'max:255',
         ]);
+        $tags = array();
+        foreach (explode(self::TAG_SEPARATOR, $request->get('tags')) as $tag) {
+            $tags[] = trim($tag);
+        }
         $userId = Auth::id();
         try {
             $post = array(
                 'title' => $request->get('title'),
                 'body' => $request->get('body'),
                 'user_id' => $userId,
-                'created_at' => Carbon::now()
+                'created_at' => Carbon::now(),
+                'tags' => $tags
             );
             $this->_collection->insert($post);
         } catch (\Exception $e) {
@@ -80,7 +93,7 @@ class PostsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param  string $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -99,7 +112,7 @@ class PostsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param  string $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -110,6 +123,11 @@ class PostsController extends Controller
         if (!empty($post['updated_at'])) {
             $post['updated_at'] = (new Carbon($post['updated_at']['date'], $post['updated_at']['timezone']))
                 ->setTimezone(config('app.timezone'))->toDateTimeString();
+        }
+        if (!empty($post['tags'])) {
+            $post['tags'] = implode(self::TAG_SEPARATOR, $post['tags']);
+        } else {
+            $post['tags'] = '';
         }
         return view('posts.edit')->with('post', $post);
     }
@@ -126,12 +144,18 @@ class PostsController extends Controller
         $this->validate($request, [
             'title' => 'bail|required|max:255',
             'body' => 'required',
+            'tag' => 'max:255'
         ]);
+        $tags = array();
+        foreach (explode(self::TAG_SEPARATOR, $request->get('tags')) as $tag) {
+            $tags[] = trim($tag);
+        }
         try {
             $post = array(
                 'title' => $request->get('title'),
                 'body' => $request->get('body'),
-                'updated_at' => Carbon::now()
+                'updated_at' => Carbon::now(),
+                'tags' => $tags,
             );
             $this->_collection->where('_id', $id)->update($post);
         } catch (\Exception $e) {
