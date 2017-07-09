@@ -24,6 +24,13 @@
         {!!Form::textarea('body', $post['body'], ['class' => 'form-control'])!!}
     </div>
 
+    <hr>
+    <p>Create at: {{$post['created_at']}}</p>
+    @if(!empty($post['updated_at']))
+    <p>Latest updated at: {{$post['updated_at']}}</p>
+    @endif
+    <hr>
+
     <div class="form-group">
         {!!Form::submit('Submit', null, ['class' => 'form-control btn btn-primary'])!!}
     </div>

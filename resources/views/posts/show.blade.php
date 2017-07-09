@@ -8,6 +8,12 @@
         {!! nl2br(htmlspecialchars($post['body'])) !!}
 
     </p>
+    <hr>
+    <p>Create at: {{$post['created_at']}}</p>
+    @if(!empty($post['updated_at']))
+    <p>Latest updated at: {{$post['updated_at']}}</p>
+    @endif
+    <hr>
     @if($isAdmin)
     <a href="{{route('getPostUpdate', $post['_id'])}}">
         <button>Edit</button>

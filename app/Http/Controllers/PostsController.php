@@ -28,7 +28,11 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = $this->_collection->get(array('title'))->all();
+        $posts = $this->_collection->orderBy('created_at', 'desc')->get(array('title', 'created_at'))->all();
+        foreach ($posts as &$post) {
+            $post['created_at'] = (new Carbon($post['created_at']['date'], $post['created_at']['timezone']))
+                ->setTimezone(config('app.timezone'))->toDateTimeString();
+        }
         $isAdmin = Auth::check() && Auth::user()->name == 'admin';
         return view('posts.list', compact('posts', 'isAdmin'));
     }
@@ -82,6 +86,12 @@ class PostsController extends Controller
     public function show($id)
     {
         $post = $this->_collection->where('_id', $id)->get()->first();
+        $post['created_at'] = (new Carbon($post['created_at']['date'], $post['created_at']['timezone']))
+            ->setTimezone(config('app.timezone'))->toDateTimeString();
+        if (!empty($post['updated_at'])) {
+            $post['updated_at'] = (new Carbon($post['updated_at']['date'], $post['updated_at']['timezone']))
+                ->setTimezone(config('app.timezone'))->toDateTimeString();
+        }
         $isAdmin = Auth::check() && Auth::user()->name == 'admin';
         return view('posts.show', compact('post', 'isAdmin'));
     }
@@ -95,6 +105,12 @@ class PostsController extends Controller
     public function edit($id)
     {
         $post = $this->_collection->where('_id', $id)->get()->first();
+        $post['created_at'] = (new Carbon($post['created_at']['date'], $post['created_at']['timezone']))
+            ->setTimezone(config('app.timezone'))->toDateTimeString();
+        if (!empty($post['updated_at'])) {
+            $post['updated_at'] = (new Carbon($post['updated_at']['date'], $post['updated_at']['timezone']))
+                ->setTimezone(config('app.timezone'))->toDateTimeString();
+        }
         return view('posts.edit')->with('post', $post);
     }
 

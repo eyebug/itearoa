@@ -29,7 +29,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ route('postList') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        Posts List
                     </a>
                 </div>
 

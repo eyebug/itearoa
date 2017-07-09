@@ -16,6 +16,8 @@
             @if($isAdmin)
             <a href="{{route('getPostUpdate', $post['_id'])}}"> | Edit</a>
             <a href="#" postID="{{ $post['_id'] }}" class="deletePost"> | Delete</a>
+
+            <div>{{ $post['created_at'] }}</div>
             @endif
         </li>
         @endforeach
