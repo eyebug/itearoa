@@ -19,7 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/post/create', ['as' => 'getPostCreate', 'uses' => 'PostsController@create']);
     Route::post('/post/create', ['as' => 'postPostCreate', 'uses' =>'PostsController@store']);
     Route::get('/post/update/{id}', ['as' => 'getPostUpdate', 'uses' => 'PostsController@edit']);

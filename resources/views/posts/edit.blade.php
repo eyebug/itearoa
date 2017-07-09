@@ -3,6 +3,15 @@
 @section('content')
 <div>
     <h1>Edit an existed post</h1>
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
     {!! Form::open(['route' => 'postPostUpdate']) !!}
     {!!Form::hidden('id', $post['_id'])!!}
     <div class="form-group">

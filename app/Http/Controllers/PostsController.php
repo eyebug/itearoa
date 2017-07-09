@@ -16,7 +16,8 @@ class PostsController extends Controller
      */
     private $_collection;
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->_collection = Mongodb::connectionMongodb("posts");
     }
 
@@ -28,7 +29,8 @@ class PostsController extends Controller
     public function index()
     {
         $posts = $this->_collection->get(array('title'))->all();
-        return view('posts.list')->with('posts', $posts);
+        $isAdmin = Auth::check() && Auth::user()->name == 'admin';
+        return view('posts.list', compact('posts', 'isAdmin'));
     }
 
     /**
@@ -45,27 +47,26 @@ class PostsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        $title = $request->get("title", "");
-        $body = $request->get("body", "");
+        $this->validate($request, [
+            'title' => 'bail|required|max:255',
+            'body' => 'required',
+        ]);
         $userId = Auth::id();
-        try{
-            if(empty($title) || empty($body)){
-                throw new \Exception("Empty title or body!");
-            }
+        try {
             $post = array(
-                'title' => $title,
-                'body' => $body,
+                'title' => $request->get('title'),
+                'body' => $request->get('body'),
                 'user_id' => $userId,
                 'created_at' => Carbon::now()
             );
             $this->_collection->insert($post);
-        }catch (\Exception $e){
-            return redirect()->action('PostsController@store');
+        } catch (\Exception $e) {
+            return redirect()->action('PostsController@create');
         }
 
         return redirect()->route('postList');
@@ -75,19 +76,20 @@ class PostsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
         $post = $this->_collection->where('_id', $id)->get()->first();
-        return view('posts.show')->with('post', $post);
+        $isAdmin = Auth::check() && Auth::user()->name == 'admin';
+        return view('posts.show', compact('post', 'isAdmin'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -99,25 +101,24 @@ class PostsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)
     {
         $id = $request->get('id');
-        $title = $request->get('title');
-        $body = $request->get('body');
-        try{
-            if(empty($title) || empty($body)){
-                throw new \Exception("Empty title or body!");
-            }
+        $this->validate($request, [
+            'title' => 'bail|required|max:255',
+            'body' => 'required',
+        ]);
+        try {
             $post = array(
-                'title' => $title,
-                'body' => $body,
+                'title' => $request->get('title'),
+                'body' => $request->get('body'),
                 'updated_at' => Carbon::now()
             );
             $this->_collection->where('_id', $id)->update($post);
-        }catch (\Exception $e){
+        } catch (\Exception $e) {
             return redirect()->action('PostsController@edit', array('id' => $id));
         }
 
@@ -128,7 +129,7 @@ class PostsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function delete(Request $request)
@@ -138,9 +139,9 @@ class PostsController extends Controller
             'detail' => 'success'
         );
         $id = $request->get('id');
-        try{
+        try {
             $this->_collection->delete($id);
-        } catch(\Exception $e){
+        } catch (\Exception $e) {
             $result['status'] = $e->getCode();
             $result['detail'] = "Delete post fail";
         }

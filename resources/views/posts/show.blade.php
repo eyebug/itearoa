@@ -8,7 +8,7 @@
         {!! nl2br(htmlspecialchars($post['body'])) !!}
 
     </p>
-    @if(Auth::check())
+    @if($isAdmin)
     <a href="{{route('getPostUpdate', $post['_id'])}}">
         <button>Edit</button>
     </a>
