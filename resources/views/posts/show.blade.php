@@ -14,6 +14,20 @@
     <p>Latest updated at: {{$post['updated_at']}}</p>
     @endif
     <hr>
+
+    @if(count($post['tags']))
+    <span>Tags: </span>
+    @foreach($post['tags'] as $tag)
+    <a href="{{ route('getPostListWithTag', $tag) }}">
+        <button class="btn btn-primary">{{ $tag }}</button>
+    </a>
+    @endforeach
+    @endif
+
+    @if(count($post['tags']))
+    <hr>
+    @endif
+
     @if($isAdmin)
     <a href="{{route('getPostUpdate', $post['_id'])}}">
         <button>Edit</button>

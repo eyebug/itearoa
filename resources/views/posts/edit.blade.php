@@ -24,6 +24,11 @@
         {!!Form::textarea('body', $post['body'], ['class' => 'form-control'])!!}
     </div>
 
+    <div class="form-group">
+        {!!Form::label('tag', 'Tags:')!!}
+        {!!Form::text('tags', $post['tags'], ['class' => 'form-control', 'placeholder' => 'Tags with comma separator'])!!}
+    </div>
+
     <hr>
     <p>Create at: {{$post['created_at']}}</p>
     @if(!empty($post['updated_at']))

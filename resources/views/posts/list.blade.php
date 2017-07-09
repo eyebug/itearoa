@@ -4,7 +4,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="{{ asset('js/postDelete.js') }}"></script>
 <div>
+    @if(empty($tag))
     <h1>Posts</h1>
+    @else
+    <h1>Posts with tag: {{$tag}}</h1>
+    @endif
+
     @if($isAdmin)
     <span><a href="{{ route('getPostCreate') }}">Create new post</a></span>
     @endif
@@ -23,6 +28,12 @@
         @endforeach
     </ul>
     @endif
+
+    @unless(empty($tag))
+    <a href="{{route('postList')}}">
+        <button>Back to list</button>
+    </a>
+    @endunless
 </div>
 
 @stop
