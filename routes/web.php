@@ -11,9 +11,9 @@
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Auth::routes();
 
@@ -28,6 +28,10 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 });
 
 
-Route::get('/', ['as' => 'postList', 'uses' => 'PostsController@index']);
+//Route::get('/', ['as' => 'postList', 'uses' => 'PostsController@index']);
 Route::get('/tag/{tag}', ['as' =>'getPostListWithTag', 'uses' => 'PostsController@index']);
 Route::get('/post/show/{id}', ['as' => 'getPost', 'uses' => 'PostsController@show']);
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
