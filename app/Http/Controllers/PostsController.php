@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Mongodb;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Jenssegers\Mongodb\Query\Builder;
 use Illuminate\Support\Facades\Auth;
 
 class PostsController extends Controller
@@ -20,7 +18,7 @@ class PostsController extends Controller
 
     public function __construct()
     {
-        $this->_collection = Mongodb::connectionMongodb("posts");
+
     }
 
     /**
@@ -86,7 +84,7 @@ class PostsController extends Controller
             return redirect()->action('PostsController@create');
         }
 
-        return redirect()->route('postList');
+        return redirect()->route('home');
 
     }
 
@@ -100,7 +98,7 @@ class PostsController extends Controller
     {
         $post = $this->_collection->where('_id', $id)->get()->first();
         if (!$post) {
-            return redirect()->route('postList');
+            return redirect()->route('home');
         }
         $post['created_at'] = (new Carbon($post['created_at']['date'], $post['created_at']['timezone']))
             ->setTimezone(config('app.timezone'))->toDateTimeString();

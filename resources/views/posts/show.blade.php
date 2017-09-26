@@ -32,7 +32,7 @@
         <button>Edit</button>
     </a>
     @endif
-    <a href="{{route('postList')}}">
+    <a href="{{route('home')}}">
         <button>Back to list</button>
     </a>
 </div>

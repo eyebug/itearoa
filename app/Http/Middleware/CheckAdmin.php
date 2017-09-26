@@ -16,7 +16,7 @@ class CheckAdmin
     public function handle($request, Closure $next)
     {
         if($request->user()->name != 'admin'){
-            return redirect(route('postList'));
+            return redirect(route('home'));
         }
         return $next($request);
     }

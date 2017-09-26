@@ -12,12 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('home');
+})->name('home');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/about', 'HomeController@about')->name('about');
+Route::get('/contact', 'HomeController@contact')->name('contact');
 
 Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/post/create', ['as' => 'getPostCreate', 'uses' => 'PostsController@create']);
@@ -28,10 +29,7 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 });
 
 
-//Route::get('/', ['as' => 'postList', 'uses' => 'PostsController@index']);
 Route::get('/tag/{tag}', ['as' =>'getPostListWithTag', 'uses' => 'PostsController@index']);
 Route::get('/post/show/{id}', ['as' => 'getPost', 'uses' => 'PostsController@show']);
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
