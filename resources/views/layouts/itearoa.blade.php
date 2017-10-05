@@ -8,6 +8,7 @@
         <meta content="ie=edge" http-equiv="x-ua-compatible">
         <link type="text/css" rel="stylesheet"
               href="{{asset('css/screen.css')}}">
+        <link type="text/css" rel="stylesheet" href="{{asset('css/font-awesome.css')}}">
         <title>Itearoa Ltd</title>
         <meta property="og:title" content="Itearoa Ltd">
         <link rel="icon" type="image/png" href="{{asset('img/logo.png')}}" sizes="32x32">
@@ -32,18 +33,18 @@
                     <a class="navbar-brand py-3" href="/">
                         {{--                        <img class="mt-n1rem" src="{{asset('img/logo-main.png')}}"
                         style="height:4rem" title="Itearoa Ltd">--}}
-                        <h6>Itearoa Ltd</h6>
+                        <h6 style="text-transform: uppercase">Itearoa Ltd</h6>
                     </a>
                     <div class="collapse navbar-collapse" id="navbarResponsive">
                         <ul class="navbar-nav mr-auto text-right text-md-left" style="text-transform:uppercase">
                             <li class="nav-item ml-md-5">
-                                <a class="nav-link" href="{{route('home')}}">Products</a>
+                                <a class="nav-link" href="{{route('product')}}">Products</a>
                             </li>
                             <li class="nav-item ml-md-5">
                                 <a class="nav-link" href="{{route('about')}}">About</a>
                             </li>
                             <li class="nav-item ml-md-5">
-                                <a class="nav-link" href="{{route('home')}}">News</a>
+                                <a class="nav-link" href="{{route('news')}}">News</a>
                             </li>
                             <li class="nav-item ml-md-5">
                                 <a class="nav-link" href="{{route('contact')}}">Contact</a>
@@ -92,26 +93,26 @@
             <div class="row">
                 <div class="col-lg-4 my-2 my-lg-0">
                     <div class="py-5 px-5 h-100" style="background-color:#fff">
-                        <h2 class="display-4">Iservices</h2>
+                        <h2 class="display-4">iService</h2>
                         <p class="py-4">iService, Mobile apps<br/>Cloud, Service to guest, Interactive mobile
                             application,
                             Smart control.</p>
-                        <a class="mt-2 btn btn-outline-primary" href="{{route('about')}}" role="button">Explore</a>
+                        <a class="mt-2 btn btn-outline-primary" href="{{route('detail')}}" role="button">Explore</a>
                     </div>
                 </div>
                 <div class="col-lg-4 my-2 my-lg-0">
                     <div class="py-5 px-5 h-100" style="background-color:#fff">
                         <h2 class="display-4">TCS</h2>
                         <p class="py-4">TCS, Telephone Communication Center, Connect center, instant service.</p>
-                        <a class="mt-2 btn btn-outline-primary" href="{{route('about')}}" role="button">Explore</a>
+                        <a class="mt-2 btn btn-outline-primary" href="{{route('detail')}}" role="button">Explore</a>
                     </div>
                 </div>
                 <div class="col-lg-4 my-2 my-lg-0">
                     <div class="py-5 px-5 h-100" style="background-color:#fff">
-                        <h2 class="display-4">Consultance</h2>
+                        <h2 class="display-4">Consultancy Services</h2>
                         <p class="py-4">Consultance and training, help to build up the professional IT
                             infrastructure.</p>
-                        <a class="mt-2 btn btn-outline-primary" href="{{route('about')}}" role="button">Explore</a>
+                        <a class="mt-2 btn btn-outline-primary" href="{{route('detail')}}" role="button">Explore</a>
                     </div>
                 </div>
             </div>
@@ -122,60 +123,63 @@
 <footer>
     <div class="py-5" style="background-color:#fbfbfb !important">
         <div class="container">
+
+
             <div class="row text-center text-lg-left">
-                <div class="col-lg-2 py-3">
+                <div class="address">
                     <a href="{{route('home')}}">
                         {{--                        <img class="mt-n1rem" src="{{asset('img/logo-main.png')}}" style="height:4rem"
                         title="Itearoa Ltd">--}}
                         <h6 style="color: #001489">Itearoa Ltd</h6>
                     </a>
+                    <div class="" style="font-size: small;padding-top: 10px; color: #999">
+                        <h7>Hamilton, New Zealand</h7>
+                        <p>Itearoa Ltd<br>Suit 10, Level 4,<br>169 London Street, Hamilton<br>
+                            3204, New Zealand.<br>
+                            <i class="fa fa-phone" aria-hidden="true"></i> +64(0)7 260 3330
+                        </p>
+                    </div>
+
+
+                    <div class="" style="font-size: small;padding-top: 10px; color: #999">
+                        <h7>Beijing, China</h7>
+                        <p>
+                            2F/5 Zaojunmiao Rd,<br>
+                            Haidian District, Beijing<br>
+                            100000, China<br>
+                            <i class="fa fa-phone" aria-hidden="true"></i> +8610 64777012
+                        </p>
+
+                    </div>
+
+
+                    @section('introDownload')
+                        <a href="{{asset('download/iServices-introduction.pdf')}}">
+                            <i class="fa fa-download" aria-hidden="true"></i> Introduction of
+                            EasyiService
+                        </a>
+                    <br>
+                        <a href="{{asset('download/TCS_Chinese_V1.0.pdf')}}">
+                            <i class="fa fa-download" aria-hidden="true"></i> Introduction of
+                            TCS(Chinese Only)
+                        </a>
+                    @show
+
                 </div>
 
+
                 @section('productsfooter')
-                    <div class="col-lg-4">
-                        <ul class="list-unstyled">
-                            <li>
-                                <h6 class="py-3">
-                                    <a href="{{route('home')}}">Products</a>
-                                </h6>
-                                <ul class="list-unstyled">
-                                    <li class="py-3">
-                                        <h6>
-                                            <a href="{{route('about')}}">Iservicest</a>
-                                        </h6>
-                                        <ul class="list-unstyled">
-                                            <li>
-                                                <a href="{{route('about')}}">iService, Mobile apps</a>
-                                            </li>
-                                            </li>
-                                            <li>
-                                                <a href="{{route('about')}}">Interactive mobile application</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="py-3">
-                                        <h6>
-                                            <a href="{{route('about')}}">TCS</a>
-                                        </h6>
-                                        <ul class="list-unstyled">
-                                            <li>
-                                                <a href="{{route('about')}}">Telephone Communication Center</a>
-                                            </li>
-                                            <li>
-                                                <a href="{{route('about')}}">Connect center</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="py-3">
-                                        <h6>
-                                            <a href="{{route('about')}}">Consultance</a>
-                                        </h6>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
+                    <style type="text/css">
+                        @media (min-width: 720px) {
+                            .address {
+                                margin-left: 30%;
+                            }
+
+                        }
+                    </style>
                 @show
+
+
 
                 @section('aboutFooter')
                     <div class="col-lg-2 col-xl-3">
@@ -231,7 +235,7 @@
                                     <a href="/">English</a>
                                 </li>
                                 <li>
-                                    <a href="/zh">中文</a>
+                                    <a href="/">中文</a>
                                 </li>
                             </ul>
                         </div>
