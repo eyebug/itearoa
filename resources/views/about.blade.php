@@ -1,6 +1,6 @@
 @extends('layouts.itearoa')
 
-@section('backgroundUrl'){{asset('img/round_service.jpg')}}@stop
+@section('backgroundUrl'){{asset('img/blackboard.jpg')}}@stop
 
 
 @section('mainContent')

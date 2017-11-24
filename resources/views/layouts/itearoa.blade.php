@@ -126,7 +126,7 @@
 
 
             <div class="row text-center text-lg-left">
-                <div class="address">
+                <div class="address col-lg-4 col-xl-3 text-center py-3">
                     <a href="{{route('home')}}">
                         {{--                        <img class="mt-n1rem" src="{{asset('img/logo-main.png')}}" style="height:4rem"
                         title="Itearoa Ltd">--}}
@@ -207,26 +207,7 @@
                         </button>
                     </div>
 
-                    @section('sns')
-                        <div class="mt-5">
-                            <a class="mx-2" href="http://www.itearoa.co.nz/linkedin">
-                                <img src="{{asset('img/linkedin-button.svg')}}"
-                                     style="height:2.5rem">
-                            </a>
-                            <a class="mx-2" href="http://www.itearoa.co.nz/facebook">
-                                <img src="{{asset('img/facebook-logo-button.svg')}}"
-                                     style="height:2.5rem">
-                            </a>
-                            <a class="mx-2" href="http://www.itearoa.co.nz/twitter">
-                                <img src="{{asset('img/twitter.svg')}}"
-                                     style="height:2.5rem">
-                            </a>
-                            <a class="mx-2" href="http://www.itearoa.co.nz/youtube">
-                                <img src="{{asset('img/play-button-silhouette.svg')}} "
-                                     style="height:2.5rem">
-                            </a>
-                        </div>
-                    @show
+
 
                     @section('translation')
                         <div class="mt-5">

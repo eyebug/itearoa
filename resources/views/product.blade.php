@@ -2,10 +2,6 @@
 
 @section('backgroundUrl'){{asset('img/finger.jpeg')}}@stop
 
-@section('sns')
-
-@overwrite
-
 @section('productsfooter')
     <style type="text/css">
         h6{
