@@ -22,6 +22,7 @@ Route::get('/contact', 'HomeController@contact')->name('contact');
 Route::get('/product', 'HomeController@product')->name('product');
 Route::get('/detail', 'HomeController@detail')->name('detail');
 Route::get('/news', 'HomeController@news')->name('news');
+Route::get('/shanshui/download', 'HomeController@shanshuiDownload')->name('shanshuiDownload');
 
 Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/post/create', ['as' => 'getPostCreate', 'uses' => 'PostsController@create']);

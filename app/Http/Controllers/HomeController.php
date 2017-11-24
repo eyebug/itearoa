@@ -41,4 +41,8 @@ class HomeController extends Controller
     public function news(){
         return view('news');
     }
+
+    public function shanshuiDownload() {
+        return view('shanshui.download');
+    }
 }
