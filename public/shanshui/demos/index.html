@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>山水文园</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <script type="text/javascript" src="../dist/js/clock.js"></script>
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="../dist/css/swiper.min.css">
+    <!-- animate -->
+    <link rel="stylesheet" href="../dist/css/animate.min.css">
+    <!-- Demo styles -->
+    <link rel="stylesheet" href="../dist/css/font-awesome/css/font-awesome.min.css">
+    <style>
+    html,
+    body {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    body {
+        background: white;
+        background-image: url("./img/background.png");
+        transition: background-image 3s;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100% 100% !important;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #000;
+        margin: 0;
+        padding: 0;
+    }
+
+    #title-text {
+        font-family: serif;
+        color: white;
+        position: absolute;
+        top: 0;
+        left: 47%;
+        width: 200%;
+    }
+
+    div#top-clock {
+        position: absolute;
+        top: 12%;
+        right: 5%;
+        font-family: serif;
+        color: white;
+        font-size: 2.5em;
+    }
+
+    #top-clock {
+        font-size: 2em;
+    }
+
+    div.footer .focus {
+        color: white;
+        font-size: 2.5em;
+    }
+
+    .swiper-container {
+        width: 84%;
+        height: 37%;
+        position: relative;
+        top: 40%;
+        left: 8%;
+        position: absolute;
+        margin: 0 auto;
+    }
+
+    .swiper-slide {
+        /*text-align: center;*/
+        font-size: 18px;
+        background: #fff;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        /*        -webkit-box-pack: center;
+        -ms-flex-pack: center;*/
+        /*-webkit-justify-content: center;*/
+        /*justify-center*/
+        /*justify-content: center;*/
+        /*-webkit-box-align: center;*/
+        /*-ms-flex-align: center;*/
+        /*-webkit-align-items: center;/*vertical-center*/
+        /*align-items: center;*/
+    }
+
+
+    .tab-container {
+        width: 100%;
+        position: fixed;
+    }
+
+    .tab-container .tab {
+        margin: 0;
+        padding: 15% 25%;
+        list-style-type: none;
+        width: 80%;
+        position: absolute;
+    }
+
+    .hide {
+        /*display: none;*/
+        visibility: hidden;
+    }
+
+    .tab-container .tab .tab-item {
+        width: 15%;
+        float: left;
+        cursor: pointer;
+        text-align: center;
+        display: inline-block;
+        height: 40px;
+        line-height: 40px;
+        color: #fff;
+        font-size: 2em;
+    }
+
+    .tab-container .tab .tab-item-line {
+        width: 100%;
+        height: 10px;
+    }
+
+    @keyframes tab-line-active-animation {
+        0% {
+            width: 0;
+        }
+        10% {
+            width: 10%;
+        }
+        25% {
+            width: 25%;
+        }
+        35% {
+            width: 35%;
+        }
+        45% {
+            width: 50%;
+        }
+        60% {
+            width: 50%;
+        }
+        75% {
+            width: 115%;
+        }
+        85% {
+            width: 108%;
+        }
+        100% {
+            width: 100%;
+        }
+    }
+
+    .tab-container .tab .tab-line-active {
+        animation: tab-line-active-animation .2s;
+        background: #00cabd;
+    }
+
+
+    .tab-container .tab .tab-item-line1 {
+        background: #00cabd;
+        height: 2px;
+        width: 100%;
+    }
+
+    .footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 100px;
+        background-color: rgba(2, 19, 49, 0.6);
+    }
+
+    .footIcon {
+        color: #126699;
+        font-size: 2.2em;
+        display: inline-block;
+        margin-top: 1.5%;
+        margin-left: 4%;
+    }
+
+
+    img.room {
+        width: 99%;
+        height: 65%;
+        padding: 0.5%
+    }
+
+    div.room_title_container p {
+        margin-left: 5%;
+    }
+
+    p.room_title {
+        margin: 0;
+        font-size: 1.3em;
+        color: #272424;
+        font-family: serif;
+        font-weight: bold;
+    }
+
+
+    div.local_title_container p {
+        margin-left: 2%;
+	margin-top: 0px;
+    }
+
+    .local {
+        height: 85%;
+    }
+
+    p.room_detail {
+        font-size: 1.2em;
+    }
+
+    p.local_detail {
+        font-size: 0.7em;
+    }
+
+    span.room_subtitle,
+    span.room_unit {
+        color: grey;
+    }
+
+    span.room_index {
+        color: #21d0c2;
+    }
+
+    span.room_index_unit {
+        float: right;
+        margin-right: 5%;
+    }
+
+
+    img.firefighting {
+        width: 100%;
+    }
+
+    div.firefighting {
+        background-color: none;
+    }
+
+
+    div.facilities {
+        border-radius: 50%;
+        align-items: center;
+        background: rgba(1, 1, 1, 0.5);
+        /*border: solid 2px #00cabd;*/
+    }
+
+    div.facilities img {
+        width: 100%;
+        height: 100%;
+    }
+
+    div.facilities div {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+    div.facilities p {
+        color: white;
+    }
+    div.swiper-button-next {
+    	background-image: url("./img/next.png");
+    	background-size: contain;
+    }
+
+    div.swiper-button-prev {
+    	background-image: url("./img/prev.png");
+        background-size: contain;
+    }
+
+    </style>
+</head>
+
+<body>
+    <div class="tab-container">
+        <div id="top-title-and-clock">
+            <div id="top-title" style="width: 15%; position: absolute; top: 5%; left: 5%;">
+                <img src="../demos/img/shanshui.png" style="width: 100%">
+                <div id="title-text">
+                    <span style="font-size: 2.5em; border-bottom: solid; border-bottom-color: #00cabd;">River Side</span>
+                    <span style="font-size: 2em; display: block;">让中国更美丽 让生活更美好</span>
+                </div>
+            </div>
+            <div id="top-clock">
+                <span id="weekday">山水</span>
+                <span id="hour-minute">欢迎您</span>
+            </div>
+        </div>
+        <ul class="tab andimated bounceIn" id="tab1">
+            <li class="tab-item" value="0" style="margin-left: 8%;">
+                <span class="tab-item-title">房型列表</span>
+                <div class="tab-item-line tab-line-active"></div>
+                <div class="tab-item-line1"></div>
+            </li>
+            <li class="tab-item" value="1">
+                <span class="tab-item-title">便利设施</span>
+                <div class="tab-item-line"></div>
+                <div class="tab-item-line1"></div>
+            </li>
+            <li class="tab-item" value="2">
+                <span class="tab-item-title">楼层消防</span>
+                <div class="tab-item-line"></div>
+                <div class="tab-item-line1"></div>
+            </li>
+        </ul>
+        <ul class="tab andimated hide" id="tab2">
+            <li class="tab-item" value="4" style="margin-left: 8%;">
+                <span class="tab-item-title">地标</span>
+                <div class="tab-item-line tab-line-active"></div>
+                <div class="tab-item-line1"></div>
+            </li>
+            <li class="tab-item" value="5">
+                <span class="tab-item-title">文化娱乐</span>
+                <div class="tab-item-line"></div>
+                <div class="tab-item-line1"></div>
+            </li>
+            <li class="tab-item" value="6">
+                <span class="tab-item-title">购物</span>
+                <div class="tab-item-line"></div>
+                <div class="tab-item-line1"></div>
+            </li>
+        </ul>
+    </div>
+    <!-- Swiper -->
+    <div class="swiper-container animated bounceIn" id="swiper0">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="room">
+                    <img class="room" src="./img/1room_kitchen.jpg">
+                    <div class="room_title_container">
+                        <p class="room_title">一居豪华套房</p>
+                        <p class="room_detail">
+                            <span class="room_subtitle">公寓面积</span>
+                            <span class="room_index_unit">
+                                <span class="room_index">87</span>
+                            <span class="room_unit">m²</span>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="room">
+                    <img class="room" src="./img/2rooms_livingroom.jpg">
+                    <div class="room_title_container">
+                        <p class="room_title">两居商务套房</p>
+                        <p class="room_detail">
+                            <span class="room_subtitle">公寓面积</span>
+                            <span class="room_index_unit">
+                                <span class="room_index">118</span>
+                            <span class="room_unit">m²</span>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="room">
+                    <img class="room" src="./img/3rooms_bedroom.jpg">
+                    <div class="room_title_container">
+                        <p class="room_title">三居豪华套房</p>
+                        <p class="room_detail">
+                            <span class="room_subtitle">公寓面积</span>
+                            <span class="room_index_unit">
+                                <span class="room_index">243</span>
+                            <span class="room_unit">m²</span>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="room">
+                    <img class="room" src="./img/1room.jpg">
+                    <div class="room_title_container">
+                        <p class="room_title">一居行政套房</p>
+                        <p class="room_detail">
+                            <span class="room_subtitle">公寓面积</span>
+                            <span class="room_index_unit">
+                                <span class="room_index">71</span>
+                            <span class="room_unit">m²</span>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="room">
+                    <img class="room" src="./img/s_3rooms_dinning.jpg">
+                    <div class="room_title_container">
+                        <p class="room_title">三居尊贵豪华套房</p>
+                        <p class="room_detail">
+                            <span class="room_subtitle">公寓面积</span>
+                            <span class="room_index_unit">
+                                <span class="room_index">323</span>
+                            <span class="room_unit">m²</span>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="room">
+                    <img class="room" src="./img/s_3rooms_kitchen.jpg">
+                    <div class="room_title_container">
+                        <p class="room_title">一居尊贵豪华套房</p>
+                        <p class="room_detail">
+                            <span class="room_subtitle">公寓面积</span>
+                            <span class="room_index_unit">
+                                <span class="room_index">93</span>
+                            <span class="room_unit">m²</span>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+    <!-- Swiper -->
+    <div class="swiper-container animated hide" id="swiper1">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide facilities">
+                <div>
+                    <img src="./img/facilities/健身房.png">
+                    <p>健身房</p>
+                </div>
+            </div>
+            <div class="swiper-slide facilities">
+                <div>
+                    <img src="./img/facilities/餐厅.png">
+                    <p>餐厅</p>
+                </div>
+            </div>
+            <div class="swiper-slide facilities">
+                <div>
+                    <img src="./img/facilities/电脑.png">
+                    <p>商务中心</p>
+                </div>
+            </div>
+            <div class="swiper-slide facilities">
+                <div>
+                    <img src="./img/facilities/洗衣房.png">
+                    <p>洗衣房</p>
+                </div>
+            </div>
+            <div class="swiper-slide facilities">
+                <div>
+                    <img src="./img/facilities/休闲区.png">
+                    <p>休闲区</p>
+                </div>
+            </div>
+            <div class="swiper-slide facilities">
+                <div>
+                    <img src="./img/facilities/游泳池.png">
+                    <p>恒温泳池</p>
+                </div>
+            </div>
+            <div class="swiper-slide facilities">
+                <div>
+                    <img src="./img/facilities/阅读室.png">
+                    <p>阅读厅</p>
+                </div>
+            </div>
+            <div class="swiper-slide facilities">
+                <div>
+                    <img src="./img/facilities/儿童区.png">
+                    <p>儿童区</p>
+                </div>
+            </div>
+            <div class="swiper-slide facilities">
+                <div>
+                    <img src="./img/facilities/Wi-Fi.png">
+                    <p>Wi-Fi</p>
+                </div>
+            </div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+    <!-- Swiper -->
+    <div class="swiper-container animated hide firefighting" id="swiper2">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img class="firefighting" src="./img/firefighting/B1.jpg">
+            </div>
+            <div class="swiper-slide">
+                <img class="firefighting" src="./img/firefighting/1F.jpg">
+            </div>
+            <div class="swiper-slide">
+                <img class="firefighting" src="./img/firefighting/3F.jpg">
+            </div>
+            <div class="swiper-slide">
+                <img class="firefighting" src="./img/firefighting/5F.jpg">
+            </div>
+            <div class="swiper-slide">
+                <img class="firefighting" src="./img/firefighting/6F.jpg">
+            </div>
+            <div class="swiper-slide">
+                <img class="firefighting" src="./img/firefighting/7F.jpg">
+            </div>
+            <div class="swiper-slide">
+                <img class="firefighting" src="./img/firefighting/8F.jpg">
+            </div>
+            <div class="swiper-slide">
+                <img class="firefighting" src="./img/firefighting/9F.jpg">
+            </div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+    <div class="swiper-container animated hide" id="swiper4">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="local">
+                    <img class="room" src="./img/localInterest/tiananmen.jpg">
+                    <div class="local_title_container">
+                        <p class="local_title">天安门广场</p>
+                        <p class="local_detail">
+                            <span class="room_subtitle">天安门广场是北京的心脏地带，是世界上最大的城市中心广场。天安门广场是无数重大政治、历史事件的发生地，是中国从衰落到崛起的历史见证。天安门广场占地面积44公顷，东西宽500米，南北长880米，地面全部由经过特殊工艺技术处理的浅色花岗岩条石铺成。</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="local">
+                    <img class="room" src="./img/localInterest/niaochao.jpg">
+                    <div class="local_title_container">
+                        <p class="local_title">国家体育场</p>
+                        <p class="local_detail">
+                            <span class="room_subtitle">国家体育场位于北京奥林匹克公园中心区南部，为2008年第29届奥林匹克运动会的主体育场。工程总占地面积21公顷，建筑面积258,000m2。场内观众坐席约为91000个，其中临时坐席约11000个。奥运会、残奥会开闭幕式、田径比赛及足球比赛决赛在这里举行。奥运会后这里会成为文化体育、健身购物、餐饮娱乐、旅游展览等综合性的大型场所，并成为具有地标性的体育建筑和奥运遗产。</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="local">
+                    <img class="room" src="./img/localInterest/dajuyuan.jpg">
+                    <div class="local_title_container">
+                        <p class="local_title">国家大剧院</p>
+                        <p class="local_detail">
+                            <span class="room_subtitle">国家大剧院中心建筑为独特的壳体造型，高46.68米，地下最深32.50米，周长达600余米。壳体表面由18398块钛金属板和1226多块超白玻璃巧妙拼接，营造出舞台帷幕徐徐拉开的视觉效果。壳体周围是面积达3.55万平方米的人工湖及由大片绿植组成的文化休闲广场，不仅美化了大剧院外部景观，也体现了人与自然和谐共融的理念。</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="local">
+                    <img class="room" src="./img/localInterest/gugong.jpg">
+                    <div class="local_title_container">
+                        <p class="local_title">故宫</p>
+                        <p class="local_detail">
+                            <span class="room_subtitle">北京故宫是中国明清两代的皇家宫殿，位于北京中轴线的中心，是中国古代宫廷建筑之精华。于明成祖永乐四年（1406年）开始建设，以南京故宫为蓝本营建，到永乐十八年（1420年）建成。北京故宫以太三大殿为中心，占地72万平方米，建筑面积约15万平方米，有大小宫殿七十多座，房屋九千余间。是世界上现存规模最大、保存最为完整的木质结构古建筑之一。</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="local">
+                    <img class="room" src="./img/localInterest/shuilifang.jpg">
+                    <div class="local_title_container">
+                        <p class="local_title">水立方</p>
+                        <p class="local_detail">
+                            <span class="room_subtitle">
+                        	国家游泳中心位于北京奥林匹克公园内，2008年北京奥运会标志性建筑物之一。其与国家体育场分列于北京城市中轴线北端的两侧，共同形成相对完整的北京历史文化名城形象。国家游泳中心规划建设用地62950平方米，总建筑面积65000-80000平方米，其中地下部分的建筑面积不少于15000平方米。来自101个国家和地区的35万多港澳台同胞及海外侨胞共捐献了9.4亿人民币。</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+    <!-- Swiper -->
+    <div class="swiper-container animated hide" id="swiper5">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="local">
+                    <img class="room" src="./img/localInterest/meishuguan.jpg">
+                    <div class="local_title_container">
+                        <p class="local_title">中国美术馆</p>
+                        <p class="local_detail">
+                            <span class="room_subtitle">中国美术馆位于北京市东城区五四大街一号，左有美术馆东街与隆福寺相连，右与皇城根公园、沙滩北大红楼为邻，南与王府井商业街相隔咫尺。</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="local">
+                    <img class="room" src="./img/localInterest/shoudubowuguan.jpg">
+                    <div class="local_title_container">
+                        <p class="local_title">首都博物馆</p>
+                        <p class="local_detail"><span class="room_subtitle">首都博物馆于1981年正式对外开放，是个综合性博物馆，首都博物馆的定位决定了首博展览的构成：基本陈列，基本陈列和临时展览。博物馆展陈的核心，表现了恢宏壮丽的北京文化及不断递升并走向辉煌的都城发展史，成为创建中国一流博物馆的品牌陈列。</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="local">
+                    <img class="room" src="./img/localInterest/junshibowuguan.jpg">
+                    <div class="local_title_container">
+                        <p class="local_title">首都军事博物馆</p>
+                        <p class="local_detail">
+                            <span class="room_subtitle">中国人民革命军事博物馆筹建于1959年，是向国庆10周年献礼的首都十大建筑之一。它也是中国唯一的大型综合性军事历史博物馆。博物馆中央7层，两侧4层，顶层有塔尖高挑军徽。整座建筑气势端正，雄伟异常。
+                        	</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+    <!-- Swiper -->
+    <div class="swiper-container animated hide" id="swiper6">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="local">
+                    <img class="room" src="./img/localInterest/shimaotianjie.jpg">
+                    <div class="local_title_container">
+                        <p class="local_title">世贸天阶</p>
+                        <p class="local_detail">
+                            <span class="room_subtitle">世贸天阶位于迎宾国道东大桥路的东侧，紧邻国贸，嘉里中心等众多顶级写字楼以及世贸国际公寓，新城攻击等名品公寓，坐镇北京CBD西区门户，已被朝阳区政府定位政府重点工作项目，并成为CBD的旗舰商业。</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="local">
+                    <img class="room" src="./img/localInterest/xinguangtiandi.jpg">
+                    <div class="local_title_container">
+                        <p class="local_title">新光天地</p>
+                        <p class="local_detail">
+                            <span class="room_subtitle">新光天地购物中心来自全世界938个品牌荟萃，进口货品占到61%，其中78家世界顶级品牌将首次在中国市场保持与世界同步上市，每一季新品与其在巴黎店或纽约店中展示的毫无二致。从此北京乃至全中国将与巴黎，米兰保持国际时尚零时差。</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="local">
+                    <img class="room" src="./img/localInterest/qianmendajie.jpg">
+                    <div class="local_title_container">
+                        <p class="local_title">前门大街</p>
+                        <p class="local_detail">
+                            <span class="room_subtitle">北京市东城区前门大街1-2号</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="local">
+                    <img class="room" src="./img/localInterest/wangfujingdajie.jpg">
+                    <div class="local_title_container">
+                        <p class="local_title">王府井大街</p>
+                        <p class="local_detail">
+                            <span class="room_subtitle">北京市东城区王府井大街</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+    <div class="footer">
+        <div class="footIcon focus" style="cursor: pointer;" id="introduction">
+            <i class="fa fa-bell" aria-hidden="true"></i>
+            <span>公寓介绍</span>
+        </div>
+        <!--         <div class="footIcon">
+            <i class="fa fa-flag" aria-hidden="true"></i>
+            <span>优惠促销</span>
+        </div> -->
+        <div class="footIcon" style="cursor: pointer;" id="localInterest">
+            <i class="fa fa-map-marker" aria-hidden="true"></i>
+            <span>本地攻略</span>
+        </div>
+        <!--         <div class="footIcon">
+            <i class="fa fa-coffee" aria-hidden="true"></i>
+            <span>社区生活</span>
+        </div> -->
+    </div>
+    <!-- Swiper JS -->
+    <script src="../dist/js/swiper.min.js"></script>
+    <!--jQuery JS  -->
+    <script src="../dist/js/jquery.min.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+    var swiper = new Swiper('#swiper0', {
+        //pagination: '.swiper-pagination',
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        slidesPerView: 4,
+        paginationClickable: true,
+        spaceBetween: 30,
+        loop: true,
+        freeMode: true,
+        grabCursor: true,
+        autoplay: 5000,
+        loop: true
+    });
+    var swiper = new Swiper('#swiper1', {
+        pagination: '.swiper-pagination',
+        // nextButton: '.swiper-button-next',
+        // prevButton: '.swiper-button-prev',
+        slidesPerView: 6,
+        paginationClickable: true,
+        spaceBetween: 30,
+        loop: true,
+        freeMode: true,
+        grabCursor: true,
+        autoplay: 5000,
+        loop: true
+    });
+    var swiper = new Swiper('#swiper2', {
+        //pagination: '.swiper-pagination',
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        slidesPerView: 3,
+        paginationClickable: true,
+        spaceBetween: 30,
+        loop: true,
+        freeMode: true,
+        grabCursor: true,
+        autoplay: 5000,
+        loop: true
+    });
+
+    var swiper = new Swiper('#swiper4', {
+        //pagination: '.swiper-pagination',
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        slidesPerView: 3,
+        paginationClickable: true,
+        spaceBetween: 30,
+        loop: true,
+        freeMode: true,
+        grabCursor: true,
+        autoplay: 5000,
+        loop: true
+    });
+    var swiper = new Swiper('#swiper5', {
+        //pagination: '.swiper-pagination',
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        slidesPerView: 3,
+        paginationClickable: true,
+        spaceBetween: 30,
+        loop: true,
+        freeMode: true,
+        grabCursor: true,
+        autoplay: 5000,
+        loop: true
+    });
+    var swiper = new Swiper('#swiper6', {
+        //pagination: '.swiper-pagination',
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        slidesPerView: 3,
+        paginationClickable: true,
+        spaceBetween: 30,
+        loop: true,
+        freeMode: true,
+        grabCursor: true,
+        autoplay: 5000,
+        loop: true
+    });
+
+    var lastId = 0;
+    var nextId;
+    $(function() {
+        var $tabItemLine = '.tab-item-line';
+        var $clsTabLineActive = 'tab-line-active';
+        $('.tab-item', '.tab').on('click', function() {
+            $(this).find($tabItemLine).addClass($clsTabLineActive);
+            $(this).siblings().find($tabItemLine).removeClass($clsTabLineActive);
+            nextId = parseInt($(this)[0].value);
+            if (lastId == nextId) {
+                return;
+            } else {
+                $('#swiper' + lastId + '').removeClass('bounceIn').addClass('bounceOut');
+                setTimeout(function() { $('#swiper' + nextId + '').removeClass('bounceOut hide').addClass('bounceIn'); }, 1000);
+
+                lastId = nextId;
+            };
+        });
+    });
+
+
+
+    $("#localInterest").on('click', function() {
+        if ($(this).hasClass('focus')) {
+            return;
+        }
+        nextId = 4;
+        $("#tab1").removeClass('bounceIn').addClass('bounceOut hide');
+        setTimeout(function() { $("#tab2").removeClass('bounceOut hide').addClass('bounceIn'); }, 800);
+        $('#swiper' + lastId).removeClass('bounceIn').addClass('bounceOut');
+        setTimeout(function() { $('#swiper' + nextId + '').removeClass('bounceOut hide').addClass('bounceIn'); }, 800);
+        $(this).addClass('focus');
+        $("#introduction").removeClass('focus');
+        lastId = nextId;
+        $('li.tab-item')[3].click()
+    });
+    $("#introduction").on('click', function() {
+        if ($(this).hasClass('focus')) {
+            return;
+        }
+        nextId = 0;
+        $("#tab2").removeClass('bounceIn').addClass('hide');
+        setTimeout(function() { $("#tab1").removeClass('bounceOut hide').addClass('bounceIn'); }, 800);
+        $("#swiper" + lastId).removeClass('bounceIn').addClass('bounceOut');
+        setTimeout(function() { $('#swiper' + nextId).removeClass('bounceOut hide').addClass("bounceIn"); }, 800);
+        $(this).addClass('focus');
+        $("#localInterest").removeClass('focus');
+        lastId = nextId;
+        $('li.tab-item')[0].click()
+    });
+
+    (function() {
+        var bgCounter = 0,
+            backgrounds = [
+                "./img/background.png",
+                "./img/finger.jpeg",
+                // "./img/ic.jpeg"
+            ];
+
+        function changeBackground() {
+            bgCounter = (bgCounter + 1) % backgrounds.length;
+            $('body').css('background', '#000 url(' + backgrounds[bgCounter] + ') no-repeat');
+            setTimeout(changeBackground, 5000);
+
+        }
+        changeBackground();
+    })();
+
+    (function() {
+
+        function roundFacilities() {
+            $('.facilities').css('height', $('.facilities').css('width'));
+        }
+        roundFacilities();
+
+        $(window).resize(function() {
+            roundFacilities();
+        });
+
+    })();
+
+    </script>
+</body>
+
+</html>
