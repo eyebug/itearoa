@@ -60,7 +60,7 @@
                         </h6>
                         <ul class="list-unstyled">
                             <li>
-                                <a href="{{route('detail')}}">Help to build up the professional IT infrastructure</a>
+                                <a href="{{route('detail')}}">Helping to develop the professional IT infrastructure</a>
                             </li>
                         </ul>
                     </li>
