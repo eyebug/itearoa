@@ -13,23 +13,19 @@
                 <h2 class="display-4"></h2>
                 <div class="row">
                     <div class="col-lg-8 mx-auto" style="text-align: left">
-                        <p class="mt-4">&nbsp;&nbsp;&nbsp;&nbsp;Itearoa is a company that provides IT and communication solution for hospitality industry,
-                            Itearoa specializing in software solution, mobile apps, web service and network integration consultant.</p>
+                        <p class="mt-4">&nbsp;&nbsp;&nbsp;&nbsp; Itearoa is a company that provides information and communication technology (ICT) solutions for the hospitality industry. Itearoa specialises in software solutions, mobile applications, web services and network integration consultation.</p>
                         <p class="mt-4">
-                            &nbsp;&nbsp;&nbsp;&nbsp;With extensive experience in the information and communications technology(ICT) industry and having established,
-                            run and grown business communications products, software development services and mobile apps.
+                            &nbsp;&nbsp;&nbsp;&nbsp;Itearoa has extensive experience in the ICT industry, Itearoa has established, run and grown business communications products, software development services and mobile apps.
                         </p>
                         <p class="mt-4">
-                            &nbsp;&nbsp;&nbsp;&nbsp;iService App is designed to provide a range of smart services to hotel and other hospitality guests,
-                            enhancing the whole customer experience and adding value for the hotel.
+                            &nbsp;&nbsp;&nbsp;&nbsp;The iService App is designed to provide a range of smart services to hospitality providers and their guests, it enhances the whole customer experience and adds value for the provider.
                         </p>
                         <p class="mt-4">
-                            &nbsp;&nbsp;&nbsp;&nbsp;The telephone center system TCS delivers an integrated communications solution for service businesses,
-                            including contact centers, help desks and hotel developer.
+                            &nbsp;&nbsp;&nbsp;&nbsp;The telephone center system, TCS delivers an integrated communications solution for service businesses,
+                            including contact centers, help desks and hotel developers.
                         </p>
                         <p class="mt-4">
-                            &nbsp;&nbsp;&nbsp;&nbsp;Consulting implementation and training services mainly to the hospitality and IT industries for network
-                            integration consultant of the hotels.
+                            &nbsp;&nbsp;&nbsp;&nbsp;Itearoa provides consulting, implementation and training services mainly to the hospitality and IT industries for the network integration of hotels.
                         </p>
                     </div>
                 </div>

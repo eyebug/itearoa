@@ -71,10 +71,10 @@
                         <div class="py-4 hidden-lg-down"></div>
                         <div class="py-5 hidden-xs-down"></div>
                         <h1 class="mt-5 mb-4" style="font-size:1rem">Our Products</h1>
-                        <h2 class="display-2">Technology Service For Our Guest</h2>
+                        <h2 class="display-2">Technology Services For Our Guests</h2>
                         <div class="row">
                             <div class="col-lg-8 mx-auto">
-                                <p class="mt-4">Deliver the best experience to our guest.</p>
+                                <p class="mt-4">Delivering the best experiences to our guests.</p>
                             </div>
                         </div>
                         <hr class="mt-5" style="border:0.4rem solid #fff;width:16rem;background-color:#fff">
@@ -94,23 +94,23 @@
                 <div class="col-lg-4 my-2 my-lg-0">
                     <div class="py-5 px-5 h-100" style="background-color:#fff">
                         <h2 class="display-4">iService</h2>
-                        <p class="py-4">iService, Mobile apps<br/>Cloud, Service to guest, Interactive mobile
-                            application,
-                            Smart control.</p>
+                        <p class="py-4">iService, Mobile application<br/>Cloud, Services to guest, Interactive mobile
+                            app,
+                            Smart controls.</p>
                         <a class="mt-2 btn btn-outline-primary" href="{{route('detail')}}" role="button">Explore</a>
                     </div>
                 </div>
                 <div class="col-lg-4 my-2 my-lg-0">
                     <div class="py-5 px-5 h-100" style="background-color:#fff">
                         <h2 class="display-4">TCS</h2>
-                        <p class="py-4">TCS, Telephone Communication Center, Connect center, instant service.</p>
+                        <p class="py-4">TCS, Telephone Communication Center, Connect center, Instant service.</p>
                         <a class="mt-2 btn btn-outline-primary" href="{{route('detail')}}" role="button">Explore</a>
                     </div>
                 </div>
                 <div class="col-lg-4 my-2 my-lg-0">
                     <div class="py-5 px-5 h-100" style="background-color:#fff">
                         <h2 class="display-4">Consultancy Services</h2>
-                        <p class="py-4">Consultance and training, help to build up the professional IT
+                        <p class="py-4">Consultation and training: helping to develop the professional IT
                             infrastructure.</p>
                         <a class="mt-2 btn btn-outline-primary" href="{{route('detail')}}" role="button">Explore</a>
                     </div>

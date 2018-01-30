@@ -7,37 +7,35 @@
                 <div class="col-sm-6 col-md-4 py-3 px-4">
                     <i class="fa fa-keyboard-o fa-3x" aria-hidden="true"></i>
                     <h6 class="my-3 text-primary">Smart Control</h6>
-                    <p>Pressing the Smart Control button gives the guest control of their personal preferences of heating, lighting and air conditioning
-                    and even the room key; and, because the iService is wireless and portable, these functions can be controlled from anywhere in the room,
-                        giving the guest total flexibility.
+                    <p>Pressing the Smart Control button gives guests total control of their personal preferences in the room including: heating, lighting, air conditioning and even the room key; because iService is wireless and portable, these functions can be controlled from anywhere near the room allowing the guest to have total flexibility over their room.
                     </p>
                 </div>
                 <div class="col-sm-6 col-md-4 py-3 px-4">
                     <i class="fa fa-handshake-o fa-3x" aria-hidden="true"></i>
                     <h6 class="my-3 text-primary">Interactive Service</h6>
-                    <p>The iService software runs on a Mobile device and generates significant incremental revenue for hotels while
+                    <p>The iService software runs on a mobile device and generates significant incremental revenue for hotels while
                     reducing costs and improving the guest experience.
                     </p>
                 </div>
                 <div class="col-sm-6 col-md-4 py-3 px-4">
                     <i class="fa fa-street-view fa-3x" aria-hidden="true"></i>
                     <h6 class="my-3 text-primary">720° Panoramic room viewing</h6>
-                    <p>A full range of room display, guests feel the immersive effect</p>
+                    <p>A full range of room display allows guests to feel the immersive effect of modern technology</p>
                 </div>
                 <div class="col-sm-6 col-md-4 py-3 px-4">
                     <i class="fa fa-volume-control-phone fa-3x" aria-hidden="true"></i>
                     <h6 class="my-3 text-primary">Room Booking</h6>
-                    <p>View and order room service</p>
+                    <p>View and order room service.</p>
                 </div>
                 <div class="col-sm-6 col-md-4 py-3 px-4">
                     <i class="fa fa-home fa-3x" aria-hidden="true"></i>
                     <h6 class="my-3 text-primary">My Residence</h6>
-                    <p>Local language voice broadcast home address, easy back to my residence</p>
+                    <p>Local language voice broadcast home address allows for easy pathfinding back to the residence.</p>
                 </div>
                 <div class="col-sm-6 col-md-4 py-3 px-4">
                     <i class="fa fa-compass fa-3x" aria-hidden="true"></i>
                     <h6 class="my-3 text-primary">Local Interest</h6>
-                    <p>Information about surroundings, restaurants, bars, nightlife provides increased service for guests.</p>
+                    <p>Information about the surroundings including: restaurants, bars and nightlife provides increased service for guests.</p>
                 </div>
                 <div class="col-sm-6 col-md-4 py-3 px-4">
                     <i class="fa fa-credit-card fa-3x" aria-hidden="true"></i>
