@@ -21,11 +21,11 @@
 
 
         const ANDROID_V2 = "/download/shanshui.apk";
-        const ANDROID_WEIXIN_V2 = "android_weixin_v2";
+        const ANDROID_WEIXIN_V2 = "http://a.app.qq.com/o/simple.jsp?pkgname=com.itearoa.shanshui";
 
 
         const IPHONE_V2 = "https://itunes.apple.com/us/app/easyiservice-riverside/id1291074127?l=zh&ls=1&mt=8";
-        const IPHONE_WEIXIN_V2 = "ios_weixin_v2";
+        const IPHONE_WEIXIN_V2 = "http://a.app.qq.com/o/simple.jsp?pkgname=com.itearoa.shanshui";
         var browser = {
             versions: function () {
                 var u = navigator.userAgent, app = navigator.appVersion;
@@ -74,11 +74,7 @@
         } else {
             url = PAGE_PC;
         }
-        if (checkIphoneWeixinAndV2 == 1) {
-            document.write("<img src='/download/weixin-ios.png' style='width: 100%'/>;");
-        } else if (checkAndroidWeixinAndV2 == 1) {
-            document.write("<img src='/download/weixin-android.png' style='width: 100%'/>;");
-        } else if (url == PAGE_PC || url == PAGE_IPAD) {
+        if (url == PAGE_PC || url == PAGE_IPAD) {
             document.write("请使用手机设备扫描");
             document.write("Please scan the QR code with a mobile device");
         } else {
