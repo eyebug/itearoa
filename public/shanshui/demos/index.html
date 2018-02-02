@@ -239,7 +239,9 @@
 
 
     img.firefighting {
-        width: 100%;
+        width: 98%;
+        height: 98%;
+        margin: 1%;
     }
 
     div.firefighting {
@@ -297,7 +299,7 @@
             </div>
         </div>
         <ul class="tab andimated bounceIn" id="tab1">
-            <li class="tab-item" value="0" style="margin-left: 8%;">
+            <li class="tab-item" value="0" style="margin-left: 16%;">
                 <span class="tab-item-title">房型列表</span>
                 <div class="tab-item-line tab-line-active"></div>
                 <div class="tab-item-line1"></div>
@@ -307,11 +309,11 @@
                 <div class="tab-item-line"></div>
                 <div class="tab-item-line1"></div>
             </li>
-            <li class="tab-item" value="2">
-                <span class="tab-item-title">楼层消防</span>
-                <div class="tab-item-line"></div>
-                <div class="tab-item-line1"></div>
-            </li>
+            <!--<li class="tab-item" value="2">-->
+                <!--<span class="tab-item-title">楼层消防</span>-->
+                <!--<div class="tab-item-line"></div>-->
+                <!--<div class="tab-item-line1"></div>-->
+            <!--</li>-->
         </ul>
         <ul class="tab andimated hide" id="tab2">
             <li class="tab-item" value="4" style="margin-left: 8%;">
@@ -433,58 +435,39 @@
     <!-- Swiper -->
     <div class="swiper-container animated hide" id="swiper1">
         <div class="swiper-wrapper">
+
             <div class="swiper-slide facilities">
-                <div>
-                    <img src="./img/facilities/健身房.png">
-                    <p>健身房</p>
+                <div class="swiper-container-self" value="2">
+                    <img src="./img/facilities/休闲区.png">
+                    <p>中庭下午茶</p>
                 </div>
             </div>
+
             <div class="swiper-slide facilities">
-                <div>
+                <div class="swiper-container-self" value="7">
                     <img src="./img/facilities/餐厅.png">
                     <p>餐厅</p>
                 </div>
             </div>
+
             <div class="swiper-slide facilities">
-                <div>
-                    <img src="./img/facilities/电脑.png">
-                    <p>商务中心</p>
+                <div class="swiper-container-self" value="8">
+                    <img src="img/facilities/阅读室.png">
+                    <p>书吧</p>
                 </div>
             </div>
+
             <div class="swiper-slide facilities">
-                <div>
-                    <img src="./img/facilities/洗衣房.png">
-                    <p>洗衣房</p>
-                </div>
-            </div>
-            <div class="swiper-slide facilities">
-                <div>
-                    <img src="./img/facilities/休闲区.png">
-                    <p>休闲区</p>
-                </div>
-            </div>
-            <div class="swiper-slide facilities">
-                <div>
-                    <img src="./img/facilities/游泳池.png">
-                    <p>恒温泳池</p>
-                </div>
-            </div>
-            <div class="swiper-slide facilities">
-                <div>
-                    <img src="./img/facilities/阅读室.png">
-                    <p>阅读厅</p>
-                </div>
-            </div>
-            <div class="swiper-slide facilities">
-                <div>
+                <div class="swiper-container-self" value="9">
                     <img src="./img/facilities/儿童区.png">
-                    <p>儿童区</p>
+                    <p>儿童绘本室</p>
                 </div>
             </div>
+
             <div class="swiper-slide facilities">
-                <div>
-                    <img src="./img/facilities/Wi-Fi.png">
-                    <p>Wi-Fi</p>
+                <div class="swiper-container-self" value="10">
+                    <img src="./img/facilities/游泳池.png">
+                    <p>游泳池</p>
                 </div>
             </div>
         </div>
@@ -495,28 +478,16 @@
     <div class="swiper-container animated hide firefighting" id="swiper2">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
-                <img class="firefighting" src="./img/firefighting/B1.jpg">
+                <img class="firefighting" src="./img/facilities/下午茶/下午茶01.jpg">
             </div>
             <div class="swiper-slide">
-                <img class="firefighting" src="./img/firefighting/1F.jpg">
+                <img class="firefighting" src="./img/facilities/下午茶/下午茶02.jpg">
             </div>
             <div class="swiper-slide">
-                <img class="firefighting" src="./img/firefighting/3F.jpg">
+                <img class="firefighting" src="./img/facilities/下午茶/下午茶03.jpg">
             </div>
             <div class="swiper-slide">
-                <img class="firefighting" src="./img/firefighting/5F.jpg">
-            </div>
-            <div class="swiper-slide">
-                <img class="firefighting" src="./img/firefighting/6F.jpg">
-            </div>
-            <div class="swiper-slide">
-                <img class="firefighting" src="./img/firefighting/7F.jpg">
-            </div>
-            <div class="swiper-slide">
-                <img class="firefighting" src="./img/firefighting/8F.jpg">
-            </div>
-            <div class="swiper-slide">
-                <img class="firefighting" src="./img/firefighting/9F.jpg">
+                <img class="firefighting" src="./img/facilities/下午茶/下午茶04.jpg">
             </div>
         </div>
         <!-- Add Pagination -->
@@ -524,6 +495,94 @@
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
     </div>
+
+    <div class="swiper-container animated hide firefighting" id="swiper7">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img class="firefighting" src="./img/facilities/中餐/中餐01.jpg">
+            </div>
+            <div class="swiper-slide">
+                <img class="firefighting" src="./img/facilities/中餐/中餐02.jpg">
+            </div>
+            <div class="swiper-slide">
+                <img class="firefighting" src="./img/facilities/中餐/中餐03.jpg">
+            </div>
+            <div class="swiper-slide">
+                <img class="firefighting" src="./img/facilities/中餐/中餐04.jpg">
+            </div>
+            <div class="swiper-slide">
+                <img class="firefighting" src="./img/facilities/中餐/中餐05.jpg">
+            </div>
+            <div class="swiper-slide">
+                <img class="firefighting" src="./img/facilities/中餐/中餐06.jpg">
+            </div>
+            <div class="swiper-slide">
+                <img class="firefighting" src="./img/facilities/西餐/西餐01.jpg">
+            </div>
+            <div class="swiper-slide">
+                <img class="firefighting" src="./img/facilities/西餐/西餐02.jpg">
+            </div>
+            <div class="swiper-slide">
+                <img class="firefighting" src="./img/facilities/西餐/西餐03.jpg">
+            </div>
+            <div class="swiper-slide">
+                <img class="firefighting" src="./img/facilities/西餐/西餐04.jpg">
+            </div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+
+    <div class="swiper-container animated hide firefighting" id="swiper8">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img class="firefighting" src="./img/facilities/设施/书吧01.jpg">
+            </div>
+            <div class="swiper-slide">
+                <img class="firefighting" src="./img/facilities/设施/书吧02.jpg">
+            </div>
+            <div class="swiper-slide">
+                <img class="firefighting" src="./img/facilities/设施/书吧03.jpg">
+            </div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+
+    <div class="swiper-container animated hide firefighting" id="swiper9">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img class="firefighting" src="./img/facilities/设施/儿童绘本室01.jpg">
+            </div>
+            <div class="swiper-slide">
+                <img class="firefighting" src="./img/facilities/设施/儿童绘本室02.jpg">
+            </div>
+            <div class="swiper-slide">
+                <img class="firefighting" src="./img/facilities/设施/儿童绘本室03.jpg">
+            </div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+
+    <div class="swiper-container animated hide firefighting" id="swiper10">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img class="firefighting" style="width: 100%; height:100%; margin:0;" src="./img/facilities/设施/游泳池.jpg">
+            </div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+
     <div class="swiper-container animated hide" id="swiper4">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
@@ -724,7 +783,7 @@
         pagination: '.swiper-pagination',
         // nextButton: '.swiper-button-next',
         // prevButton: '.swiper-button-prev',
-        slidesPerView: 6,
+        slidesPerView: 5,
         paginationClickable: true,
         spaceBetween: 30,
         loop: true,
@@ -737,7 +796,7 @@
         //pagination: '.swiper-pagination',
         nextButton: '.swiper-button-next',
         prevButton: '.swiper-button-prev',
-        slidesPerView: 3,
+        slidesPerView: 4,
         paginationClickable: true,
         spaceBetween: 30,
         loop: true,
@@ -787,6 +846,62 @@
         loop: true
     });
 
+    var swiper = new Swiper('#swiper7', {
+        //pagination: '.swiper-pagination',
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        slidesPerView: 4,
+        paginationClickable: true,
+        spaceBetween: 30,
+        loop: true,
+        freeMode: true,
+        grabCursor: true,
+        autoplay: 5000,
+        loop: true
+    });
+
+    var swiper = new Swiper('#swiper8', {
+        //pagination: '.swiper-pagination',
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        slidesPerView: 3,
+        paginationClickable: true,
+        spaceBetween: 30,
+        loop: true,
+        freeMode: true,
+        grabCursor: true,
+        autoplay: 5000,
+        loop: true
+    });
+
+    var swiper = new Swiper('#swiper9', {
+        //pagination: '.swiper-pagination',
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        slidesPerView: 3,
+        paginationClickable: true,
+        spaceBetween: 30,
+        loop: true,
+        freeMode: true,
+        grabCursor: true,
+        autoplay: 5000,
+        loop: true
+    });
+
+    var swiper = new Swiper('#swiper10', {
+        //pagination: '.swiper-pagination',
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        slidesPerView: 1,
+        paginationClickable: true,
+        spaceBetween: 30,
+        loop: true,
+        freeMode: true,
+        grabCursor: true,
+        autoplay: 5000,
+        loop: true
+    });
+
     var lastId = 0;
     var nextId;
     $(function() {
@@ -796,6 +911,21 @@
             $(this).find($tabItemLine).addClass($clsTabLineActive);
             $(this).siblings().find($tabItemLine).removeClass($clsTabLineActive);
             nextId = parseInt($(this)[0].value);
+            if (lastId == nextId) {
+                return;
+            } else {
+                $('#swiper' + lastId + '').removeClass('bounceIn').addClass('bounceOut');
+                setTimeout(function() { $('#swiper' + nextId + '').removeClass('bounceOut hide').addClass('bounceIn'); }, 1000);
+
+                lastId = nextId;
+            };
+        });
+
+        $('.swiper-container-self').on('click', function() {
+            var currentId = parseInt($(this).attr('value'));
+            if (currentId >= 0) {
+                nextId = parseInt($(this).attr('value'));
+            }
             if (lastId == nextId) {
                 return;
             } else {
