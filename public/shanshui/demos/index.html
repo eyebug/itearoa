@@ -603,22 +603,22 @@
 
             <div class="swiper-slide canteen">
                 <div class="swiper-container-self room" value="14">
-                    <img class="canteen" src="./img/facilities/设施/中餐厅.jpg">
+                    <img class="canteen" src="./img/facilities/设施/西餐厅.jpg">
                     <p>西餐厅</p>
                 </div>
             </div>
 
             <div class="swiper-slide canteen">
-                <div class=" room">
+                <div class="swiper-container-self room" value="16">
                     <img class="canteen" src="./img/facilities/设施/早餐厅.jpg">
-                    <p style="color:gray;">早餐厅</p>
+                    <p>早餐厅</p>
                 </div>
             </div>
 
             <div class="swiper-slide canteen">
-                <div class="room">
-                    <img class="canteen" src="./img/facilities/设施/多功能厅.jpg">
-                    <p style="color: gray">多功能厅</p>
+                <div class="swiper-container-self room" value="17">
+                    <img class="canteen" src="img/facilities/设施/多功能厅.jpg">
+                    <p>多功能厅</p>
                 </div>
             </div>
 
@@ -782,6 +782,40 @@
         <div class="swiper-pagination"></div>
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
+    </div>
+
+    <div class="swiper-container animated hide" id="swiper16">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img class="firefighting" src="./img/facilities/早餐/早餐厅食品.jpg">
+            </div>
+
+            <div class="swiper-slide">
+                <img class="firefighting" src="./img/facilities/早餐/早餐厅食品1.jpg">
+            </div>
+
+        </div>
+        <!-- Add Pagination -->
+        <!--<div class="swiper-pagination"></div>-->
+        <!--<div class="swiper-button-next"></div>-->
+        <!--<div class="swiper-button-prev"></div>-->
+    </div>
+
+    <div class="swiper-container animated hide" id="swiper17">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img class="firefighting" src="./img/facilities/多功能厅/多功能厅.jpg">
+            </div>
+
+            <div class="swiper-slide">
+                <img class="firefighting" src="./img/facilities/多功能厅/多功能照片.jpg">
+            </div>
+
+        </div>
+        <!-- Add Pagination -->
+        <!--<div class="swiper-pagination"></div>-->
+        <!--<div class="swiper-button-next"></div>-->
+        <!--<div class="swiper-button-prev"></div>-->
     </div>
 
 
@@ -1081,13 +1115,12 @@
 
     var swiper = new Swiper('#swiper11', {
         pagination: '.swiper-pagination',
-//        nextButton: '.swiper-button-next',
-//        prevButton: '.swiper-button-prev',
         slidesPerView: 4,
         paginationClickable: true,
         spaceBetween: 30,
         loop: true,
         freeMode: true,
+        autoplay: 5000,
         grabCursor: true
     });
 
@@ -1135,6 +1168,32 @@
         nextButton: '.swiper-button-next',
         prevButton: '.swiper-button-prev',
         slidesPerView: 4,
+        paginationClickable: true,
+        spaceBetween: 30,
+        freeMode: true,
+        grabCursor: true,
+        autoplay: 5000,
+        loop: true
+    });
+
+    var swiper = new Swiper('#swiper16', {
+//        pagination: '.swiper-pagination',
+//        nextButton: '.swiper-button-next',
+//        prevButton: '.swiper-button-prev',
+        slidesPerView: 3,
+        paginationClickable: true,
+        spaceBetween: 30,
+        freeMode: true,
+        grabCursor: true,
+        autoplay: 5000,
+        loop: true
+    });
+
+    var swiper = new Swiper('#swiper17', {
+//        pagination: '.swiper-pagination',
+//        nextButton: '.swiper-button-next',
+//        prevButton: '.swiper-button-prev',
+        slidesPerView: 3,
         paginationClickable: true,
         spaceBetween: 30,
         freeMode: true,
